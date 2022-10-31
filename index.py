@@ -12,6 +12,11 @@ def donate():
     return render_template("donate.html")
 
 
+@app.route("/add-post")
+def add_post():
+    return render_template("add-post.html")
+
+
 @app.route("/posts", methods=["POST", "GET"])
 def posts():
     if request.method == "POST":
