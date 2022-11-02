@@ -3,10 +3,7 @@ from flask import Flask, render_template, request
 app = Flask(__name__)
 app.debug = True
 
-<<<<<<< Updated upstream:venv/index.py
 #xd
-=======
->>>>>>> Stashed changes:index.py
 
 @app.route("/")
 def index():
