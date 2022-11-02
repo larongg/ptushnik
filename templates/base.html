@@ -9,17 +9,41 @@
     <title>{% block title %}{% endblock %}</title>
 </head>
 <body>
+    <script>
+        function login(){
+            if (document.getElementById("loginWindow").style.visibility == "visible"){
+                document.getElementById("loginWindow").style.visibility = "hidden"
+                document.getElementById("loginWindow").style.opacity = 0;
+                document.getElementById("loginWindow").style.transform = "translateY(0)";
+
+            } else{
+                document.getElementById("loginWindow").style.visibility = "visible"
+                document.getElementById("loginWindow").style.opacity = 1;
+                document.getElementById("loginWindow").style.transform = "translateY(5px)";
+            }
+            return false
+        }
+    </script>
     <header>
         <div id="logo"><a href="/"><img src="{{ url_for('static', filename='img/Logo.png') }}"></a></div>
-        <div id="donate"><a href="/donate">Донат</a></div>
         <div id="search">
             <form autocomplete="off" method="post" action="/posts"> 
-            <input type="text" id="searchRequest" name="searchRequest" class="search" placeholder="Поиск по сайту">
-          </form>
+                <input type="text" id="searchRequest" name="searchRequest" class="search" placeholder="Поиск по сайту">
+            </form>
         </div>
         <div id="add-post"><a href="/add-post">Добавить пост</a></div>
-        <div id="login"><a href="/login">Войти</a></div>
+        <div id="donate"><a href="/donate">Донат</a></div>
+        <div id="logBut"><a href="#" onclick="return login()">Войти</a></div>
     </header>
+    <div id="loginWindow">
+        <form method="post" action="/login">
+            <p class="inputFields">Логин: </p>
+            <input type="text" name="login" id="login" class="inputFields"><br>
+            <p class="inputFields">Пароль: </p>
+            <input type="password" name="password" id="password" class="inputFields"><br>
+            <button type="submit" class="inputFields">Войти</button>
+        </form>
+    </div>
     {% block body %}{% endblock %}
 </body>
 </html>

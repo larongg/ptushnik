@@ -1,6 +1,11 @@
 import sqlite3
 
 
+def login(login, password):
+    '''login function'''
+    pass
+
+
 def registration(cursor, name, password):
     cursor.execute()
 

@@ -1,4 +1,5 @@
 from flask import Flask, render_template, request
+import back_end as be
 
 app = Flask(__name__)
 app.debug = True
@@ -26,6 +27,14 @@ def posts():
         return searchRequest
     else:
         return "homo"
+
+@app.route("/login", methods=["POST"])
+def log_in():
+    if request.method == "POST":
+        login = request.form['login']
+        password = request.form['password']
+        be.login(login, password)
+
 
 
 if __name__ == "__main__":
