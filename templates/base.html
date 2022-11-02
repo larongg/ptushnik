@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+    <link rel="icon" type="image/png" href="{{ url_for('static', filename='img/icon.png') }}">
+<<<<<<< Updated upstream:venv/templates/base.html
+    <!--<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">-->    
+    <title>{% block title %}{% endblock %}</title>
+=======
+    <!--<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">-->    <title>{% block title %}{% endblock %}</title>
+>>>>>>> Stashed changes:templates/base.html
+</head>
+<body>
+    <header>
+        <div id="logo"><a href="/"><img src="{{ url_for('static', filename='img/Logo.png') }}"></a></div>
+        <div id="donate"><a href="/donate">Донат</a></div>
+        <div id="search">
+            <form autocomplete="off" method="post" action="/posts"> 
+            <input type="text" id="searchRequest" name="searchRequest" class="search" placeholder="Поиск по сайту">
+          </form>
+        </div>
+        <div id="add-post"><a href="/add-post">Добавить пост</a></div>
+        <div id="login"><a href="/login">Войти</a></div>
+    </header>
+    {% block body %}{% endblock %}
+</body>
+</html>
