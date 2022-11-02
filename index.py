@@ -5,6 +5,7 @@ app.debug = True
 
 #xd
 
+
 @app.route("/")
 def index():
     return render_template("index.html")
