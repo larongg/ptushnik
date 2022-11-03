@@ -71,7 +71,37 @@ header div a{
     color: #b2b2b2;
   }
 
-#login {
+#logBut{
     justify-content: flex-end;
-    padding-right: 25px;
+    padding-right: 3%;
+    flex-grow: 0.5;
+}
+
+#loginWindow {
+    visibility: hidden;
+    position: absolute;
+    background: #292929;
+    overflow: hidden;
+    right: 2%;
+    min-width: 176px;
+    width: auto;
+    transition: opacity 100ms linear, visibility 100ms linear, transform 100ms linear;
+}
+
+#loginWindow p {
+    font-size: 20px;
+    padding: 0 16px;
+    margin: 5px 0;
+}
+
+#loginWindow input, #loginWindow button {
+    display: flex;
+    align-items: center;
+    margin: 0 16px;
+    height: 28px;
+    font-size: 20px;
+}
+
+#loginWindow button {
+    margin-bottom: 10px;
 }
