@@ -1,9 +1,12 @@
 from flask import Flask, render_template, request
+from flask_socketio import SocketIO, send
+
 
 app = Flask(__name__)
 app.debug = True
+app.config['SECRET'] = "secret!123"
+socketio = SocketIO(app, cors_allowed_origins="*")
 
-#xd
 
 @app.route("/")
 def index():
@@ -29,5 +32,17 @@ def posts():
         return "homo"
 
 
+@socketio.on('message')
+def handle_message(message):
+    print(message)
+    if message != "User connected!":
+        send(message, broadcast=True)
+
+
+@app.route("/online-chat")
+def online_chat():
+    return render_template("online-chat.html")
+
+
 if __name__ == "__main__":
-    app.run(debug=True)
+    socketio.run(app, host="localhost", allow_unsafe_werkzeug=True)
