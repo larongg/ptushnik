@@ -26,8 +26,8 @@ def add_post():
 @app.route("/posts", methods=["POST", "GET"])
 def posts():
     if request.method == "POST":
-        searchRequest = request.form['searchRequest']
-        return searchRequest
+        search_request = request.form['searchRequest']
+        return search_request
     else:
         return "homo"
 
