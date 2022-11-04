@@ -53,4 +53,4 @@ def online_chat():
 
 
 if __name__ == "__main__":
-    socketio.run(app, host="localhost", allow_unsafe_werkzeug=True)
+    socketio.run(app, allow_unsafe_werkzeug=True)
